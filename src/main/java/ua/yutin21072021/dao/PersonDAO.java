@@ -5,6 +5,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import ua.yutin21072021.models.Person;
+
 import java.util.List;
 
 @Component
@@ -34,7 +35,7 @@ public class PersonDAO {
     }
 
     public void update(int id, Person updatedPerson) {
-        jdbcTemplate.update("UPDATE Person SET name=?, age=?, email=?, id=?",
+        jdbcTemplate.update("UPDATE Person SET name=?, age=?, email=? WHERE id=?",
                 updatedPerson.getName(), updatedPerson.getAge(), updatedPerson.getEmail(), id);
     }
 
